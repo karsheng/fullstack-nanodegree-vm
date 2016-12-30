@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+# !/usr/bin/env python
 #
 # tournament.py -- implementation of a Swiss-system tournament
 #
@@ -75,7 +75,7 @@ def playerStandings():
     """
     conn = connect()
     c = conn.cursor()
-    q ='''\
+    q = '''\
         SELECT 
         winstable.id, winstable.name, winstable.wins, matchtable.matches 
         FROM 
@@ -139,6 +139,6 @@ def swissPairings():
         if i % 2 == 0:
             pairings.append((id, name))
         else:
-            pairings[(i-1)/2] += (id, name)    
+            pairings[(i-1)/2] += (id, name)
 
     return pairings
