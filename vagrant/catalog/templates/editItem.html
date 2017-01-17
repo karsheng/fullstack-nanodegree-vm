@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2> New Item </h2>
+
+<form action="{{url_for('editItem', item_name=item.name)}}" method = 'POST'>
+
+	<div class="form-group">
+		<label for="name">Name</label>
+		<input class="form-control" type='text' name='name' placeholder="Name" value="{{item.name}}">
+	</div>
+	<div class="form-group">
+		<label for="description">Description</label>
+		<textarea class="form-control" rows="5" name='description' placeholder="Description">{{item.description}}</textarea>
+	</div>
+	<div class="form-group">
+		<label for="category">Category</label>
+		<select name="category" class="form-control">
+			<option value="Soccer" {% if item.category.name == 'Soccer' %}selected {% endif %}>Soccer</option>
+			<option value="Basketball" {% if item.category.name == 'Basketball' %}selected {% endif %}>Basketball</option>
+			<option value="Baseball">Baseball</option>
+			<option value="Frisbee" {% if item.category.name == 'Frisbee' %}selected {% endif %}>Frisbee</option>
+			<option value="Snowboarding" {% if item.category.name == 'Snowboarding' %}selected {% endif %}>Snowboarding</option>
+			<option value="Rock Climbing" {% if item.category.name == 'Rock Climbing' %}selected {% endif %}>Rock Climbing</option>
+			<option value="Foosball" {% if item.category.name == 'Foosball' %}selected {% endif %}>Foosball</option>
+			<option value="Skating" {% if item.category.name == 'Skating' %}selected {% endif %}>Skating</option>
+		</select>
+	</div>
+	<br><br><br>
+	<input class="btn btn-success" type='submit' value='Edit'>
+</form>
+
+{% endblock %}

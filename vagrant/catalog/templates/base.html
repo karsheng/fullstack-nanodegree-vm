@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" />
+
+  <link type="text/css" rel="stylesheet" href="/static/main.css" />
+
+  <title>Catalog App</title>
+</head>
+
+<body> 
+
+  <section class="container">
+  <a href="/" class="main-title">
+    <h1>Catalog App</h1>
+  </a>
+  <div id="login-area">
+    {% if username %}
+      {{username}} (<a href="/logout">logout</a>)
+    {% else %}
+      <a href="/login">Login</a>
+    {% endif %}  
+  </div>
+  <div class="row">
+    <!--MESSAGE FLASHING EXAMPLE -->
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul>
+  {% for message in messages %}
+      <li><strong>{{message}}</strong></li>
+  {% endfor %}
+    </ul>
+  {% endif %}
+  {% endwith %}
+  
+    {% block content %}
+    {% endblock %}
+    </div>  
+  </section>      
+</body>
+
+</html>
+
